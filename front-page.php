@@ -39,9 +39,10 @@
             <section class="inner">
                 <h2>NEWS</h2>
                 <ul class="news-archive">
-                    <li><time>2021.00.00</time><a href="news_details.html">ニュースタイトルが入りますニュースタイトルが入りますニュースタイトルが入ります</a></li>
-                    <li><time>2021.00.00</time><a href="news_details.html">ニュースタイトルが入りますニュースタイトルが入ります</a></li>
-                    <li><time>2021.00.00</time><a href="news_details.html">ニュースタイトルが入ります</a></li>
+                    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                            <li><time><?php echo get_the_date('Y.m.d'); ?></time><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                    <?php endwhile;
+                    endif; ?>
                 </ul>
                 <div class="top-news_btn"><a class="btn btn-primary" href="news.html">NEWS一覧はこちら</a></div>
             </section>
