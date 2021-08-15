@@ -13,6 +13,7 @@
         </ul>
     </section>
 
+
     <div class="wrapper">
         <article class="recruit_list">
             <section class="inner">
