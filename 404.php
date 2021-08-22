@@ -6,10 +6,11 @@
     </article>
 
     <section class="breadcrumb inner">
-        <ul>
-            <li><a href="index.html">TOP</a></li>
-            <li>ページが見つかりませんでした。</li>
-        </ul>
+        <?php
+        if (function_exists('bcn_display')) {
+            bcn_display();
+        }
+        ?>
     </section>
 
     <div class="wrapper">

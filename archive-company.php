@@ -13,10 +13,11 @@ $posts_array = get_posts($args); ?>
         </article>
 
         <section class="breadcrumb inner">
-            <ul>
-                <li><a href="index.html">TOP</a></li>
-                <li>会社案内</li>
-            </ul>
+            <?php
+            if (function_exists('bcn_display')) {
+                bcn_display();
+            }
+            ?>
         </section>
 
         <div class="wrapper">

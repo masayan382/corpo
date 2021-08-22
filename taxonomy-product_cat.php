@@ -14,11 +14,11 @@ $slug = $term->slug;
     </article>
 
     <section class="breadcrumb inner">
-        <ul>
-            <li><a href="index.html">TOP</a></li>
-            <li><a href="product_line.html">製品情報</a></li>
-            <li>製品A</li>
-        </ul>
+        <?php
+        if (function_exists('bcn_display')) {
+            bcn_display();
+        }
+        ?>
     </section>
 
     <div class="wrapper">
