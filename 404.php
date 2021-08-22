@@ -17,7 +17,7 @@
         <article>
             <section class="inner">
                 <p>ページが見つかりませんでした。</p>
-                <p><a href="index.html">トップページへ戻る</a></p>
+                <p><a href="<?php echo home_url(); ?>">トップページへ戻る</a></p>
                 </ul>
             </section>
         </article>

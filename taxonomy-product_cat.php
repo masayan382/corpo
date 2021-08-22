@@ -28,7 +28,6 @@ $slug = $term->slug;
                 <ul>
                     <?php
                     $args = array(
-                        //記事一覧を表示
                         'post_type' => 'product',
                         'posts_per_page' => -1,
                         'order' => 'ASC',

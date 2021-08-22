@@ -6,16 +6,17 @@
     </article>
 
     <section class="breadcrumb inner">
-        <ol>
-            <li><a href="index.html">TOP</a></li>
-            <li>製品情報</li>
-        </ol>
+        <?php
+        if (function_exists('bcn_display')) {
+            bcn_display();
+        }
+        ?>
     </section>
 
     <div class="wrapper">
         <article class="product_line">
             <section class="inner">
-                <h2>製品一覧</h2>
+                <h2>製品情報一覧</h2>
                 <?php
                 $taxonomy = 'product_cat';
                 $args = array(
