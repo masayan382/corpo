@@ -31,8 +31,9 @@
                             $cat_image = SCF::get_term_meta($term->term_id, $taxonomy, 'list_img');
                             $cf_sample = wp_get_attachment_image_src($cat_image, 'full');
                             $imgUrl = esc_url($cf_sample[0]);
+                            $post_type = get_query_var('post_type');
                         ?>
-                            <li><a href="<?php echo get_category_link($term->term_id); ?>">
+                            <li><a href="<?php echo get_category_link($post_type); ?><?php echo ($term->slug) ?>">
                                     <figure><img src="<?php echo $imgUrl; ?>"></figure>
                                     <div>
                                         <h3><?php echo $term->name; ?></h3>
