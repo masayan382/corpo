@@ -23,7 +23,7 @@
                 <li><a href="<?php echo home_url(); ?>/company">会社案内</a></li>
                 <li><a href="<?php echo home_url(); ?>/business">事業内容</a></li>
                 <li><a href="<?php echo home_url(); ?>/product">製品情報</a></li>
-                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="<?php echo home_url(); ?>/recruit">採用情報</a></li>
                 <li><a href="<?php echo home_url(); ?>/contact">お問い合わせ</a></li>
             </ul>
         </nav>
