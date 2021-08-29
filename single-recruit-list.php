@@ -1,63 +1,49 @@
 <?php get_header(); ?>
 
-<main>
-    <article class="recruit_sv subvisual">
-        <h2>採用情報</h2>
-    </article>
+<?php $args = array(
+    'post_type' => 'recruit',
+    'p' => '141'
+);
+$posts_array = get_posts($args); ?>
+<?php foreach ($posts_array as $post) : setup_postdata($post); ?>
 
-    <section class="breadcrumb inner">
-        <?php
-        if (function_exists('bcn_display')) {
-            bcn_display();
-        }
-        ?>
-    </section>
-
-
-    <div class="wrapper">
-        <article class="recruit_list">
-            <section class="inner">
-                <h2>募集要項</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>募集職種</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>給与</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>昇給</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>賞与</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>勤務地</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>勤務時間</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>休日・休暇</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                        <tr>
-                            <th>福利厚生</th>
-                            <td>内容が入ります</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+    <main>
+        <article class="recruit_sv subvisual">
+            <h2>採用情報</h2>
         </article>
-    </div>
 
-</main>
+        <section class="breadcrumb inner">
+            <?php
+            if (function_exists('bcn_display')) {
+                bcn_display();
+            }
+            ?>
+        </section>
 
-<?php get_footer(); ?>
+        <div class="wrapper">
+            <article class="recruit_list">
+                <section class="inner">
+                    <h2><?php echo CFS()->get('recruit_title'); ?></h2>
+                    <table>
+                        <tbody>
+                            <?php
+                            $fields = CFS()->get('recruit_tableloop');
+                            foreach ($fields as $field) :
+                            ?>
+                                <tr>
+                                    <th><?php echo $field['recruit_th']; ?></th>
+                                    <td><?php echo $field['recruit_td']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+        </div>
+
+    <?php endforeach; ?>
+    <?php wp_reset_postdata(); ?>
+
+    </main>
+
+    <?php get_footer(); ?>

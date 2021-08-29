@@ -24,7 +24,6 @@
                     'parent' => 0
                 );
                 $terms = get_terms($taxonomy, $args);
-                print_r($terms);
                 if ($terms) { ?>
                     <ul>
                         <?php foreach ($terms as $term) {
