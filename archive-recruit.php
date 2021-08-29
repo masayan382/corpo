@@ -16,7 +16,7 @@
     <div class="wrapper">
         <article class="recruit">
             <section class="inner">
-                <h2>製品一覧</h2>
+                <h2>採用情報</h2>
                 <?php
                 $taxonomy = 'recruit_cat';
                 $args = array(

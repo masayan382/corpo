@@ -1,67 +1,50 @@
 <?php get_header(); ?>
 
-<main>
-    <article class="recruit_sv subvisual">
-        <h2>採用情報</h2>
-    </article>
+<?php $args = array(
+    'post_type' => 'recruit',
+    'p' => '140'
+);
+$posts_array = get_posts($args); ?>
+<?php foreach ($posts_array as $post) : setup_postdata($post); ?>
 
-    <section class="breadcrumb inner">
-        <ul>
-            <li><a href="index.html">TOP</a></li>
-            <li><a href="recruit.html">採用情報</a></li>
-            <li>社員の声</li>
-        </ul>
-    </section>
-
-    <div class="wrapper">
-        <article class="recruit_voice">
-            <section class="inner">
-                <h2>社員の声</h2>
-                <div class="recruit_voice_contents">
-                    <h3>社員A</h3>
-                    <dl>
-                        <dt>
-                            <figure><img src="images/voice_a.jpg" alt=""></figure>
-                        </dt>
-                        <dd>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。 <br>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                        </dd>
-                    </dl>
-                </div>
-                <div class="recruit_voice_contents">
-                    <h3>社員B</h3>
-                    <dl>
-                        <dt>
-                            <figure><img src="images/voice_b.jpg" alt=""></figure>
-                        </dt>
-                        <dd>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。 <br>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                        </dd>
-                    </dl>
-                </div>
-                <div class="recruit_voice_contents">
-                    <h3>社員C</h3>
-                    <dl>
-                        <dt>
-                            <figure><img src="images/voice_c.jpg" alt=""></figure>
-                        </dt>
-                        <dd>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。 <br>
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。
-                        </dd>
-                    </dl>
-                </div>
-            </section>
+    <main>
+        <article class="recruit_sv subvisual">
+            <h2>採用情報</h2>
         </article>
-    </div>
-</main>
 
-<?php get_footer(); ?>
+        <section class="breadcrumb inner">
+            <?php
+            if (function_exists('bcn_display')) {
+                bcn_display();
+            }
+            ?>
+        </section>
+
+        <div class="wrapper">
+            <article class="recruit_voice">
+                <section class="inner">
+                    <h2><?php echo CFS()->get('recruit_title'); ?></h2>
+                    <div class="recruit_voice_contents">
+                        <?php
+                        $fields = CFS()->get('voice_tableloop');
+                        foreach ($fields as $field) :
+                        ?>
+                            <h3><?php echo $field['voice_name']; ?></h3>
+                            <dl>
+                                <dt>
+                                    <figure><img src="<?php echo $field['voice_img']; ?>" alt=""></figure>
+                                </dt>
+                                <dd>
+                                    <?php echo $field['voice_text']; ?>
+                                </dd>
+                            </dl>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            </article>
+        </div>
+    <?php endforeach; ?>
+    <?php wp_reset_postdata(); ?>
+    </main>
+
+    <?php get_footer(); ?>
