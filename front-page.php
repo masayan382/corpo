@@ -15,7 +15,8 @@
                         <figure><img src="<?php echo get_template_directory_uri(); ?>/images/top_greeting_img.jpg"></figure>
                     </dt>
                     <dd>
-                        <p>本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。<br>
+                        <p>
+                            本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。<br>
                             本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
                             本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。
                             本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。<br>
@@ -31,7 +32,7 @@
                 <h2>製品情報</h2>
                 <div>
                     <p>本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-                    <div class="top-business_btn"><a class="btn" href="product_line.html">詳しくはこちら</a></div>
+                    <div class="top-business_btn"><a class="btn" href="<?php echo home_url(); ?>/product">詳しくはこちら</a></div>
                 </div>
             </section>
         </article>
@@ -44,10 +45,11 @@
                     <?php endwhile;
                     endif; ?>
                 </ul>
-                <div class="top-news_btn"><a class="btn btn-primary" href="news.html">NEWS一覧はこちら</a></div>
+                <div class="top-news_btn"><a class="btn btn-primary" href="<?php echo home_url(); ?>/category/news">NEWS一覧はこちら</a></div>
             </section>
         </article>
     </div>
+
 </main>
 
 <?php get_footer(); ?>

@@ -6,10 +6,11 @@
     </article>
 
     <section class="breadcrumb inner">
-        <ul>
-            <li><a href="index.html">TOP</a></li>
-            <li>ニュース</li>
-        </ul>
+        <?php
+        if (function_exists('bcn_display')) {
+            bcn_display();
+        }
+        ?>
     </section>
 
     <div class="wrapper">
@@ -18,10 +19,7 @@
                 <h2>ニュース一覧</h2>
                 <ul class="news-archive">
                     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                            <li>
-                                <time><?php echo get_the_date('Y.m.d'); ?></time>
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                            </li>
+                            <li><time><?php echo get_the_date('Y.m.d'); ?></time><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                     <?php endwhile;
                     endif; ?>
                 </ul>

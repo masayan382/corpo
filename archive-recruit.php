@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <main>
-    <article class="product_sv subvisual">
-        <h2>製品情報</h2>
+    <article class="recruit_sv subvisual">
+        <h2>採用情報</h2>
     </article>
 
     <section class="breadcrumb inner">
@@ -14,11 +14,11 @@
     </section>
 
     <div class="wrapper">
-        <article class="product_line">
+        <article class="recruit">
             <section class="inner">
-                <h2>製品情報一覧</h2>
+                <h2>採用情報</h2>
                 <?php
-                $taxonomy = 'product_cat';
+                $taxonomy = 'recruit_cat';
                 $args = array(
                     'hide_empty' => 0,
                     'parent' => 0
@@ -27,11 +27,12 @@
                 if ($terms) { ?>
                     <ul>
                         <?php foreach ($terms as $term) {
-                            $cat_image = SCF::get_term_meta($term->term_id, $taxonomy, 'product_cat_img');
+                            $cat_image = SCF::get_term_meta($term->term_id, $taxonomy, 'list_img');
                             $cf_sample = wp_get_attachment_image_src($cat_image, 'full');
                             $imgUrl = esc_url($cf_sample[0]);
+                            $post_type = get_query_var('post_type');
                         ?>
-                            <li><a href="<?php echo get_category_link($term->term_id); ?>">
+                            <li><a href="<?php echo get_category_link($post_type); ?><?php echo ($term->slug) ?>">
                                     <figure><img src="<?php echo $imgUrl; ?>"></figure>
                                     <div>
                                         <h3><?php echo $term->name; ?></h3>
