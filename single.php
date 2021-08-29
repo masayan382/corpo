@@ -6,11 +6,11 @@
     </article>
 
     <section class="breadcrumb inner">
-        <ul>
-            <li><a href="index.html">TOP</a></li>
-            <li> <a href="news.html">ニュース</a></li>
-            <li>ニュース詳細</li>
-        </ul>
+        <?php
+        if (function_exists('bcn_display')) {
+            bcn_display();
+        }
+        ?>
     </section>
 
     <div class="wrapper">
