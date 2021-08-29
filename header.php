@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <h1><a href="<?php echo home_url(); ?>">KURIPRESS</a></h1>
+        <h1><a href="<?php echo home_url(); ?>">Corpo</a></h1>
         <nav>
             <ul>
                 <li><a href="<?php echo home_url(); ?>">TOP</a></li>
